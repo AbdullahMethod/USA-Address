@@ -23,16 +23,61 @@
 
     .wrapper { max-width: 900px; width: 100%; }
 
-    .title { text-align: center; margin-bottom: 18px; }
-    .title h1 {
-      font-size: 30px;
-      background: linear-gradient(90deg, #ff00c3, #00e0ff);
-      -webkit-background-clip: text;
-      color: transparent;
+    /* HEADER */
+    .title {
+      text-align: center;
+      margin-bottom: 26px;
+      position: relative;
     }
 
-    .reference { text-align: center; opacity: 0.7; font-size: 11px; }
+    .hero-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 14px;
+      border-radius: 999px;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      background: rgba(10, 10, 20, 0.9);
+      border: 1px solid rgba(255, 255, 255, 0.24);
+      backdrop-filter: blur(14px);
+      margin-bottom: 8px;
+      box-shadow: 0 0 14px rgba(0, 224, 255, 0.4);
+    }
 
+    .hero-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #00ffb3, #00e0ff);
+      box-shadow: 0 0 10px #00ffb3;
+    }
+
+    .title h1 {
+      font-size: 32px;
+      background: linear-gradient(90deg, #ff00c3, #ff7b00, #00e0ff);
+      -webkit-background-clip: text;
+      color: transparent;
+      text-shadow: 0 0 22px rgba(255, 0, 195, 0.5);
+    }
+
+    .title p {
+      margin-top: 6px;
+      font-size: 13px;
+      opacity: 0.85;
+    }
+
+    .title-underline {
+      margin: 10px auto 0;
+      width: 150px;
+      height: 2px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #ff00c3, #ff7b00, #00e0ff);
+      box-shadow: 0 0 14px rgba(0,224,255,0.7);
+    }
+
+    /* CARD */
     .card {
       margin-top: 10px;
       background: rgba(20, 20, 30, 0.9);
@@ -43,6 +88,7 @@
       backdrop-filter: blur(14px);
       position: relative;
       animation: float 6s ease-in-out infinite;
+      overflow: hidden;
     }
 
     .card::before {
@@ -52,6 +98,7 @@
       background: radial-gradient(circle, rgba(0, 224, 255, 0.4), transparent 60%);
       top: -80px; right: -40px;
     }
+
     .card::after {
       content: "";
       position: absolute;
@@ -65,6 +112,8 @@
       50%{ transform: translateY(-4px);}
     }
 
+    #card-content { position: relative; z-index: 2; }
+
     .place-name { font-size: 22px; font-weight: 700; margin-bottom: 10px; }
     .tagline { font-size: 12px; opacity: 0.7; margin-bottom: 18px; }
 
@@ -75,8 +124,49 @@
       margin-bottom: 20px;
     }
 
-    .field-label { font-size: 11px; opacity: 0.7; }
+    .field-label { font-size: 11px; opacity: 0.7; margin-bottom: 2px; }
     .field-value { font-size: 14px; font-weight: 500; }
+
+    .field { display: flex; flex-direction: column; }
+
+    /* COPY BUTTON CLOSE */
+    .field-row {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px; /* button text ke bilkul kareeb */
+      flex-wrap: wrap;
+    }
+
+    .copy-btn {
+      font-size: 10px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      background: rgba(0, 0, 0, 0.4);
+      color: #f9f9ff;
+      cursor: pointer;
+      backdrop-filter: blur(6px);
+      transition: 0.2s ease;
+    }
+
+    .copy-btn:hover {
+      background: linear-gradient(90deg, #ff00c3, #00e0ff);
+      color: #111;
+      transform: translateY(-1px);
+      box-shadow: 0 0 10px rgba(0, 224, 255, 0.7);
+    }
+
+    .copy-btn-sm {
+      font-size: 11px;
+      padding: 4px 12px;
+    }
+
+    .full-address-header {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
 
     .full-address { font-size: 15px; font-weight: 600; margin-top: 4px; }
 
@@ -96,122 +186,145 @@
       transition: 0.2s;
     }
 
-    .btn:hover { transform: translateY(-3px) scale(1.05); }
-
     @keyframes gradientMove {
       0%{ background-position: 0% 50%; }
       50%{ background-position: 100% 50%; }
       100%{ background-position: 0% 50%; }
     }
 
-    /* SOCIAL SECTION */
+    /* SOCIAL LINKS */
     .social-box { margin-top: 40px; text-align: center; }
     .social-title { font-size: 15px; opacity: 0.8; margin-bottom: 15px; }
-
     .social-links {
-      display: flex;
-      justify-content: center;
-      gap: 18px;
-      flex-wrap: wrap;
+      display: flex; justify-content: center; gap: 18px; flex-wrap: wrap;
     }
 
     .social-links a {
-      width: 48px; height: 48px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
+      width: 48px; height: 48px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
       background: rgba(255,255,255,0.08);
-      backdrop-filter: blur(12px);
       border: 1px solid rgba(255,255,255,0.18);
-
-      box-shadow: 0 0 16px #00e0ff60;
-      transition: 0.25s ease-in-out;
+      backdrop-filter: blur(12px);
+      transition: 0.25s;
     }
-
-    .social-links a img { width: 24px; }
 
     .social-links a:hover {
       transform: translateY(-5px) scale(1.12);
       background: linear-gradient(45deg, #ff00c3, #00e0ff);
-      box-shadow: 0 0 26px #ff00c380, 0 0 40px #00e0ff80;
+      box-shadow: 0 0 40px rgba(0, 224, 255, 0.5);
     }
+
+    .social-links img { width: 24px; }
   </style>
 </head>
 
 <body>
   <div class="wrapper">
 
+    <!-- HEADER -->
     <div class="title">
+      <div class="hero-pill">
+        <span class="hero-dot"></span>
+        <span>Abdullah Coded • Premium Tool</span>
+      </div>
+
       <h1>USA Address Generator</h1>
-      <p>Click the button to show the next address.</p>
+      <p>Automatically generated US addresses with one-click copy.</p>
+
+      <div class="title-underline"></div>
     </div>
 
-    <div class="reference">
-      Reference Code: <b>4345591312</b>
-    </div>
-
+    <!-- CARD -->
     <div class="card">
       <div id="card-content">
 
-        <div class="place-name" id="placeName">Tap "Generate Address"</div>
+        <div class="place-name" id="placeName">Loading...</div>
         <div class="tagline">Street • City • State • Zip • Country</div>
 
         <div class="grid">
-          <div><div class="field-label">Street</div><div class="field-value" id="street">—</div></div>
-          <div><div class="field-label">City</div><div class="field-value" id="city">—</div></div>
-          <div><div class="field-label">State</div><div class="field-value" id="state">—</div></div>
-          <div><div class="field-label">Postal Code</div><div class="field-value" id="zip">—</div></div>
-          <div><div class="field-label">Country</div><div class="field-value" id="country">—</div></div>
+          <div class="field">
+            <div class="field-label">Street</div>
+            <div class="field-row">
+              <div class="field-value" id="street">—</div>
+              <button class="copy-btn" onclick="copyField('street', this)">Copy</button>
+            </div>
+          </div>
+
+          <div class="field">
+            <div class="field-label">City</div>
+            <div class="field-row">
+              <div class="field-value" id="city">—</div>
+              <button class="copy-btn" onclick="copyField('city', this)">Copy</button>
+            </div>
+          </div>
+
+          <div class="field">
+            <div class="field-label">State</div>
+            <div class="field-row">
+              <div class="field-value" id="state">—</div>
+              <button class="copy-btn" onclick="copyField('state', this)">Copy</button>
+            </div>
+          </div>
+
+          <div class="field">
+            <div class="field-label">Postal Code</div>
+            <div class="field-row">
+              <div class="field-value" id="zip">—</div>
+              <button class="copy-btn" onclick="copyField('zip', this)">Copy</button>
+            </div>
+          </div>
+
+          <div class="field">
+            <div class="field-label">Country</div>
+            <div class="field-row">
+              <div class="field-value" id="country">—</div>
+              <button class="copy-btn" onclick="copyField('country', this)">Copy</button>
+            </div>
+          </div>
         </div>
 
         <div>
-          <div class="full-address-label">Full Address (English)</div>
+          <div class="full-address-header">
+            <div class="full-address-label">Full Address</div>
+            <button class="copy-btn copy-btn-sm" onclick="copyField('fullAddress', this)">Copy</button>
+          </div>
           <div class="full-address" id="fullAddress">—</div>
         </div>
 
       </div>
     </div>
 
+    <!-- BUTTON -->
     <div class="actions">
-      <button class="btn" onclick="showNextAddress()">Generate Address</button>
+      <button class="btn" onclick="showNextAddress()">Generate Next Address</button>
     </div>
 
-    <!-- ⭐ ADDED SOCIAL MEDIA START ⭐ -->
+    <!-- SOCIAL -->
     <div class="social-box">
       <div class="social-title">FOLLOW ME ON SOCIAL MEDIA</div>
 
       <div class="social-links">
-
-        <!-- Telegram -->
         <a href="https://t.me/abdullahcoded" target="_blank">
           <img src="https://cdn-icons-png.flaticon.com/512/906/906377.png">
         </a>
 
-        <!-- Instagram -->
         <a href="https://www.instagram.com/em.abdullah__/" target="_blank">
           <img src="https://cdn-icons-png.flaticon.com/512/1384/1384063.png">
         </a>
 
-        <!-- YouTube -->
         <a href="https://www.youtube.com/@AbdullahMusicWorldWide" target="_blank">
           <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png">
         </a>
 
-        <!-- Blogspot -->
         <a href="https://abdullahcoded.blogspot.com/" target="_blank">
-          <img src="https://cdn-icons-png.flaticon.com/512/732/732220.png">
+          <img src="https://cdn-icons-png.flaticon.com/512/5339/5339155.png">
         </a>
 
-        <!-- GitHub -->
         <a href="https://github.com/iemabdullah/" target="_blank">
           <img src="https://cdn-icons-png.flaticon.com/512/733/733609.png">
         </a>
-
       </div>
     </div>
-    <!-- ⭐ ADDED SOCIAL MEDIA END ⭐ -->
 
   </div>
 
@@ -224,15 +337,16 @@
       { name: "6 Metrotech Center", street: "Metrotech Center", city: "Brooklyn", state: "NY", zip: "11201", country: "USA" },
       { name: "721 Broadway", street: "721 Broadway", city: "New York", state: "NY", zip: "10003", country: "USA" },
       { name: "7th Street", street: "40 E 7th St", city: "New York", state: "NY", zip: "10003", country: "USA" }
-      // ... (baqi addresses jo upar diye the, yahan continue kar dena)
     ];
 
     let index = -1;
 
     function showNextAddress() {
       index = (index + 1) % addresses.length;
-      let a = addresses[index];
+      updateUI(addresses[index]);
+    }
 
+    function updateUI(a) {
       document.getElementById("placeName").innerText = a.name;
       document.getElementById("street").innerText = a.street;
       document.getElementById("city").innerText = a.city;
@@ -242,6 +356,20 @@
 
       document.getElementById("fullAddress").innerText =
         `${a.street}, ${a.city}, ${a.state} ${a.zip}, ${a.country}`;
+    }
+
+    // AUTO FIRST ADDRESS ON PAGE LOAD
+    window.addEventListener("DOMContentLoaded", () => {
+      showNextAddress();
+    });
+
+    // COPY FUNCTION
+    async function copyField(id, btn) {
+      const text = document.getElementById(id).innerText.trim();
+      await navigator.clipboard.writeText(text);
+
+      btn.innerText = "Copied!";
+      setTimeout(() => (btn.innerText = "Copy"), 1200);
     }
   </script>
 
